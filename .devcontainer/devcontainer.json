@@ -1,0 +1,22 @@
+{
+    "name": "AiZO Projekt 2 – Graph Algorithms",
+    "build": {
+        "dockerfile": "../Dockerfile"
+    },
+    "workspaceMount": "source=${localWorkspaceFolder},target=/project,type=bind",
+    "workspaceFolder": "/project",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-vscode.cpptools",
+                "ms-vscode.cmake-tools",
+                "ms-vscode.cpptools-extension-pack"
+            ],
+            "settings": {
+                "cmake.buildDirectory": "${workspaceFolder}/build",
+                "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
+            }
+        }
+    },
+    "postCreateCommand": "mkdir -p build && cd build && cmake .. -DCMAKE_BUILD_TYPE=Debug"
+}

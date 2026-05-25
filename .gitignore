@@ -1,0 +1,16 @@
+# Build artefacts
+build/
+
+# Biblioteka 
+lib/for-students/
+
+# Results CSV files 
+results/*.csv
+
+# OS artefacts
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+*.swp
