@@ -2,7 +2,7 @@
 
 int main(int argc, char** argv)
 {
-    if (Parameters::readParameters(argc, argv) != 0) {
+    if (Parameters::readParameters(argc - 1, argv + 1) != 0) {
         return 1;
     }
 
