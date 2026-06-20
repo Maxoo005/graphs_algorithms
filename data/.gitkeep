@@ -1,3 +1,0 @@
-# Place input graph files here (§12 format):
-# Line 1:     vertexCount<TAB>edgeCount
-# Line 2...:  src<TAB>dst<TAB>weight

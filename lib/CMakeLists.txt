@@ -1,9 +1,7 @@
-add_library(parameters STATIC
-    for-students/AiZO-P2-graphAlgorithms/Parameters.cpp
-)
+# Uzywamy prekompilowanej biblioteki libparameters.so
+add_library(parameters SHARED IMPORTED GLOBAL)
 
-target_include_directories(parameters PUBLIC
-    for-students/AiZO-P2-graphAlgorithms
+set_target_properties(parameters PROPERTIES
+    IMPORTED_LOCATION          ${CMAKE_SOURCE_DIR}/lib/libparameters.so
+    INTERFACE_INCLUDE_DIRECTORIES ${CMAKE_SOURCE_DIR}/lib
 )
-
-target_compile_options(parameters PRIVATE -w)

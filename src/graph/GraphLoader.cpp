@@ -1,4 +1,4 @@
-#include "GraphLoader.hpp"
+#include "graph/GraphLoader.hpp"
 #include <fstream>
 #include <iostream>
 
