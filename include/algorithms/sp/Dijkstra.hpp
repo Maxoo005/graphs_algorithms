@@ -1,8 +1,8 @@
 #ifndef DIJKSTRA_HPP
 #define DIJKSTRA_HPP
 
-#include "../../graph/ListGraph.hpp"
-#include "../../graph/MatrixGraph.hpp"
+#include "graph/ListGraph.hpp"
+#include "graph/MatrixGraph.hpp"
 
 // Wynik algorytmu Dijkstry
 struct SpResult {

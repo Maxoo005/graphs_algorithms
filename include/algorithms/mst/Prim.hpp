@@ -1,8 +1,8 @@
 #ifndef PRIM_HPP
 #define PRIM_HPP
 
-#include "../../graph/ListGraph.hpp"
-#include "../../graph/MatrixGraph.hpp"
+#include "graph/ListGraph.hpp"
+#include "graph/MatrixGraph.hpp"
 
 // Wynik PRIM
 struct MstResult {
@@ -15,10 +15,10 @@ struct MstResult {
 namespace Prim {
 
     // Prim na liscie sasiedztwa (graf nieskierowany)
-    MstResult run(ListGraph* g);
+    MstResult run(ListGraph* g, int startVertex = 0);
 
     // Prim na macierzy incydencji (graf nieskierowany)
-    MstResult run(MatrixGraph* g);
+    MstResult run(MatrixGraph* g, int startVertex = 0);
 
     // Zwolnienie pamieci wyniku
     void freeResult(MstResult& r);

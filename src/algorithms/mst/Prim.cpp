@@ -1,4 +1,4 @@
-#include "Prim.hpp"
+#include "algorithms/mst/Prim.hpp"
 
 static const int INF = 1000000000;
 
@@ -17,7 +17,7 @@ namespace Prim {
     }
 
     // Lista sasiedztwa 
-    MstResult run(ListGraph* g) {
+    MstResult run(ListGraph* g, int startVertex) {
         int V = g->getNumVertices();
 
         MstResult result;
@@ -31,7 +31,7 @@ namespace Prim {
             result.parent[i] = -1;
             inMST[i]         = false;
         }
-        result.key[0] = 0; // startujemy od wierzcholka 0
+        result.key[startVertex] = 0; // startujemy od podanego wierzcholka
 
         for (int iter = 0; iter < V; ++iter) {
             int u = minKey(result.key, inMST, V);
@@ -54,8 +54,8 @@ namespace Prim {
 
         // Suma wag MST
         result.totalWeight = 0;
-        for (int i = 1; i < V; ++i) {
-            if (result.key[i] != INF) result.totalWeight += result.key[i];
+        for (int i = 0; i < V; ++i) {
+            if (result.parent[i] >= 0) result.totalWeight += result.key[i];
         }
 
         delete[] inMST;
@@ -64,7 +64,7 @@ namespace Prim {
 
     // Macierz incydencji
     // Krawedz nieskierowana: matrix[u][j] == 1 i matrix[v][j] == 1
-    MstResult run(MatrixGraph* g) {
+    MstResult run(MatrixGraph* g, int startVertex) {
         int V = g->getNumVertices();
         int E = g->getNumEdges();
 
@@ -79,7 +79,7 @@ namespace Prim {
             result.parent[i] = -1;
             inMST[i]         = false;
         }
-        result.key[0] = 0;
+        result.key[startVertex] = 0; // startujemy od podanego wierzcholka
 
         for (int iter = 0; iter < V; ++iter) {
             int u = minKey(result.key, inMST, V);
@@ -111,8 +111,8 @@ namespace Prim {
 
         // Suma wag MST
         result.totalWeight = 0;
-        for (int i = 1; i < V; ++i) {
-            if (result.key[i] != INF) result.totalWeight += result.key[i];
+        for (int i = 0; i < V; ++i) {
+            if (result.parent[i] >= 0) result.totalWeight += result.key[i];
         }
 
         delete[] inMST;

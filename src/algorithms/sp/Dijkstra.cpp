@@ -1,6 +1,6 @@
-#include "Dijkstra.hpp"
+#include "algorithms/sp/Dijkstra.hpp"
 
-// "Nieskonczonosc" - nie INT_MAX, zeby uniknac overflow przy dist[u] + w
+// Nieskonczonosc
 static const int INF = 1000000000;
 
 namespace Dijkstra {
